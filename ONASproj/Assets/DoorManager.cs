@@ -13,15 +13,19 @@ public class DoorManager : MonoBehaviour
     public bool LeftVentClosed = false;
     public GameObject LeftVentPref;
 
+    public int NumberOfClosedDoors = 0;
+
     public void FrontalDoor() {
         if (!FrontalDoorClosed)
         {
             FrontalDoorPref.SetActive(true);
             FrontalDoorClosed = true;
+            NumberOfClosedDoors++;
         }
         else {
             FrontalDoorPref.SetActive(false);
             FrontalDoorClosed = false;
+            NumberOfClosedDoors--;
         }
     }
     public void RightVent()
@@ -30,11 +34,13 @@ public class DoorManager : MonoBehaviour
         {
             RightVentPref.SetActive(true);
             RightVentClosed = true;
+            NumberOfClosedDoors++;
         }
         else
         {
             RightVentPref.SetActive(false);
             RightVentClosed = false;
+            NumberOfClosedDoors--;
         }
     }
     public void LeftVent()
@@ -43,11 +49,13 @@ public class DoorManager : MonoBehaviour
         {
             LeftVentPref.SetActive(true);
             LeftVentClosed = true;
+            NumberOfClosedDoors++;
         }
         else
         {
             LeftVentPref.SetActive(false);
             LeftVentClosed = false;
+            NumberOfClosedDoors--;
         }
     }
 }

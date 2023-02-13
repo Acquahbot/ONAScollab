@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    public Animator animator;
     public void StartLevel()
     {
-        SceneManager.LoadScene(1);
+        
+        animator.SetTrigger("FadeOut");
     }
     public void Quit()
     {
         Application.Quit();
     }
+
+    
 }

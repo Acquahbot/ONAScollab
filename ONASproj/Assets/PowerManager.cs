@@ -12,20 +12,16 @@ public class PowerManager : MonoBehaviour
     public float Timer;
     public float TimeInto = 0f;
 
-    //prefabscanvas
-    public GameObject Usage1;
-    public GameObject Usage2;
-    public GameObject Usage3;
-    public GameObject Usage4;
-    
     public void Update()
     {
+        
+        
         Timer += Time.deltaTime;
         if (Timer > FrequencyPower + TimeInto){
             Power = Power - 1;
             TimeInto = Timer;
         }
-        FrequencyPower = PermanentFreq -2.3f* GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors;
+        FrequencyPower = PermanentFreq -3* GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors;
         PowerText.text = "POWER: " + Power.ToString();
 
 
@@ -34,38 +30,19 @@ public class PowerManager : MonoBehaviour
 
         if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 0)
         {
-            Usage1.SetActive(false);
-            Usage2.SetActive(false);
-            Usage3.SetActive(false);
-            Usage4.SetActive(false);
+            PowerText.color = Color.white;
         }
         else if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 1)
         {
-            Usage1.SetActive(true);
-            Usage2.SetActive(false);
-            Usage3.SetActive(false);
-            Usage4.SetActive(false);
+            PowerText.color = Color.yellow;
         }
         else if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 2)
         {
-            Usage1.SetActive(true);
-            Usage2.SetActive(true);
-            Usage3.SetActive(false);
-            Usage4.SetActive(false);
+            PowerText.color = new Color(255, 113, 4, 255);
         }
         else if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 3)
         {
-            Usage1.SetActive(true);
-            Usage2.SetActive(true);
-            Usage3.SetActive(true);
-            Usage4.SetActive(false);
-        }
-        else if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 4)
-        {
-            Usage1.SetActive(true);
-            Usage2.SetActive(true);
-            Usage3.SetActive(true);
-            Usage4.SetActive(true);
+            PowerText.color = Color.red;
         }
 
 

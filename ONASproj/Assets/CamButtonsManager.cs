@@ -27,10 +27,10 @@ public class CamButtonsManager : MonoBehaviour
     public void CamA2Button()
     {
         AnalJoe.SetActive(false);
-        ScubaJoe2.SetActive(false);
+        ScubaJoe2.SetActive(true);
         CenterJoe.SetActive(false);
         Meeting.SetActive(false);
-        Temporary.SetActive(true);
+        Temporary.SetActive(false);
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
@@ -38,10 +38,10 @@ public class CamButtonsManager : MonoBehaviour
     public void CamA3Button()
     {
         AnalJoe.SetActive(false);
-        ScubaJoe2.SetActive(true);
+        ScubaJoe2.SetActive(false);
         CenterJoe.SetActive(false);
         Meeting.SetActive(false);
-        Temporary.SetActive(false);
+        Temporary.SetActive(true);
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
@@ -89,5 +89,16 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(true);
+    }
+    public void CamA5Button()
+    {
+        AnalJoe.SetActive(false);
+        ScubaJoe2.SetActive(false);
+        CenterJoe.SetActive(true);
+        Meeting.SetActive(false);
+        Temporary.SetActive(false);
+        VentRight.SetActive(false);
+        VentLeft.SetActive(false);
+        WaitingRoom.SetActive(false);
     }
 }

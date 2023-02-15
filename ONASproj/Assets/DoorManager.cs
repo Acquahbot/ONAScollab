@@ -12,8 +12,23 @@ public class DoorManager : MonoBehaviour
 
     public bool LeftVentClosed = false;
     public GameObject LeftVentPref;
+    public bool AddedNumber = false;
 
     public int NumberOfClosedDoors = 0;
+
+    public void Update()
+    {
+        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen && !AddedNumber)
+        {
+            NumberOfClosedDoors++;
+            AddedNumber = true;
+        }
+        else if (!GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen && AddedNumber)
+        {
+            NumberOfClosedDoors--;
+            AddedNumber = false;
+        }
+    }
 
     public void FrontalDoor() {
         if (!FrontalDoorClosed)

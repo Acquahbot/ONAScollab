@@ -13,7 +13,14 @@ public class CamButtonsManager : MonoBehaviour
     public GameObject VentLeft;
     public GameObject WaitingRoom;
     public AudioSource CameraChange;
+    public AudioSource AnalJoeAudio;
+    public bool AnalJoeRoom = false;
 
+    public void Update()
+    {
+        
+
+    }
     public void CamA1Button()
     {
         AnalJoe.SetActive(true);
@@ -25,6 +32,9 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Play();
+        AnalJoeRoom = true;
+        
     }
     public void CamA2Button()
     {
@@ -37,6 +47,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA3Button()
     {
@@ -49,6 +61,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA9Button()
     {
@@ -61,6 +75,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA8Button()
     {
@@ -73,6 +89,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(true);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA10Button()
     {
@@ -85,6 +103,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA7Button()
     {
@@ -97,6 +117,8 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(true);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
     public void CamA5Button()
     {
@@ -109,5 +131,7 @@ public class CamButtonsManager : MonoBehaviour
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
         CameraChange.Play();
+        AnalJoeAudio.Stop();
+        AnalJoeRoom = false;
     }
 }

@@ -12,6 +12,7 @@ public class CamButtonsManager : MonoBehaviour
     public GameObject VentRight;
     public GameObject VentLeft;
     public GameObject WaitingRoom;
+    public AudioSource CameraChange;
 
     public void CamA1Button()
     {
@@ -23,6 +24,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA2Button()
     {
@@ -34,6 +36,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA3Button()
     {
@@ -45,6 +48,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA9Button()
     {
@@ -56,6 +60,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(true);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA8Button()
     {
@@ -67,6 +72,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(true);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA10Button()
     {
@@ -78,6 +84,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
     public void CamA7Button()
     {
@@ -89,6 +96,7 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(true);
+        CameraChange.Play();
     }
     public void CamA5Button()
     {
@@ -100,5 +108,6 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        CameraChange.Play();
     }
 }

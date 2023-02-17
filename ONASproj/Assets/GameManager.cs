@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject cameraOverlays;
     public AudioSource CamUp;
     public AudioSource analJoeAudio;
+    public int ScubaJoeAILevel;
 
     public void OpenCamera() {
         if (!CameraOpen)
@@ -26,4 +27,7 @@ public class GameManager : MonoBehaviour
             CameraOpen = false;
         }
     }
+
+
+
 }

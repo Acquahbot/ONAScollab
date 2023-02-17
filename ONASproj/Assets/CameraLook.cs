@@ -16,7 +16,6 @@ public class CameraLook : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.rotation.y);
         int edgeScrollSize = 80;
 
         if (Input.mousePosition.x < edgeScrollSize && transform.eulerAngles.y > MinRotation)

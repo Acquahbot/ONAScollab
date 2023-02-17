@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int ScubaJoeAILevel;
     public bool CameraOpen = false;
     public GameObject cameraOverlays;
     public AudioSource CamUp;
     public AudioSource analJoeAudio;
-    public int ScubaJoeAILevel;
+    public AudioSource scubaJoeAudio;
+    public AudioSource temporaryAudio;
 
     public void OpenCamera() {
         if (!CameraOpen)
@@ -19,15 +21,20 @@ public class GameManager : MonoBehaviour
             if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().AnalJoeRoom) {
                 analJoeAudio.Play();
             }
-
+            if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().ScubaJoeRoom) {
+                scubaJoeAudio.Play();
+            }
+            if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().TemporaryRoom) {
+                temporaryAudio.Play();
+            }
         }
         else if (CameraOpen) {
+
             cameraOverlays.SetActive(false);
             analJoeAudio.Stop();
+            scubaJoeAudio.Stop();
+            temporaryAudio.Stop();
             CameraOpen = false;
         }
     }
-
-
-
 }

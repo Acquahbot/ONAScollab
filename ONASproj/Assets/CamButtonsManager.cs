@@ -12,15 +12,22 @@ public class CamButtonsManager : MonoBehaviour
     public GameObject VentRight;
     public GameObject VentLeft;
     public GameObject WaitingRoom;
+
+    //Audio
     public AudioSource CameraChange;
     public AudioSource AnalJoeAudio;
+    public AudioSource ScubaJoeAudio;
+    public AudioSource TemporaryJoeAudio;
+    public AudioSource SecretAudio;
     public bool AnalJoeRoom = false;
-
+    public bool ScubaJoeRoom = false;
+    public bool TemporaryRoom = false;
     public void Update()
     {
         
 
     }
+    // Anal Room
     public void CamA1Button()
     {
         AnalJoe.SetActive(true);
@@ -34,8 +41,10 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Play();
         AnalJoeRoom = true;
-        
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
+    // Scuba Room
     public void CamA2Button()
     {
         AnalJoe.SetActive(false);
@@ -49,7 +58,10 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = true;
+        TemporaryRoom = false;
     }
+    // Temporary Room
     public void CamA3Button()
     {
         AnalJoe.SetActive(false);
@@ -63,6 +75,8 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = true;
     }
     public void CamA9Button()
     {
@@ -77,6 +91,8 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
     public void CamA8Button()
     {
@@ -91,6 +107,8 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
     public void CamA10Button()
     {
@@ -105,6 +123,8 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
     public void CamA7Button()
     {
@@ -119,6 +139,8 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
     public void CamA5Button()
     {
@@ -133,5 +155,7 @@ public class CamButtonsManager : MonoBehaviour
         CameraChange.Play();
         AnalJoeAudio.Stop();
         AnalJoeRoom = false;
+        ScubaJoeRoom = false;
+        TemporaryRoom = false;
     }
 }

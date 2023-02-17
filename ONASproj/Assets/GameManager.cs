@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public AudioSource analJoeAudio;
     public AudioSource scubaJoeAudio;
     public AudioSource temporaryAudio;
+    public AudioSource secretAudio;
 
     public void OpenCamera() {
         if (!CameraOpen)
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour
             if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().TemporaryRoom) {
                 temporaryAudio.Play();
             }
+            if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().SecretRoom) {
+                secretAudio.Play();
+            }
         }
         else if (CameraOpen) {
 
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
             analJoeAudio.Stop();
             scubaJoeAudio.Stop();
             temporaryAudio.Stop();
+            secretAudio.Stop();
             CameraOpen = false;
         }
     }

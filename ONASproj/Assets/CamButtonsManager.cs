@@ -12,6 +12,7 @@ public class CamButtonsManager : MonoBehaviour
     public GameObject VentRight;
     public GameObject VentLeft;
     public GameObject WaitingRoom;
+    public GameObject Secret;
 
     //Audio
     public AudioSource CameraChange;
@@ -22,6 +23,7 @@ public class CamButtonsManager : MonoBehaviour
     public bool AnalJoeRoom = false;
     public bool ScubaJoeRoom = false;
     public bool TemporaryRoom = false;
+    public bool SecretRoom = false;
     public void Update()
     {
         
@@ -40,6 +42,8 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Play();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = true;
         ScubaJoeRoom = false;
         TemporaryRoom = false;
@@ -57,6 +61,8 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
+        ScubaJoeAudio.Play();
         AnalJoeRoom = false;
         ScubaJoeRoom = true;
         TemporaryRoom = false;
@@ -74,10 +80,13 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Play();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
         TemporaryRoom = true;
     }
+    // Vent Right
     public void CamA9Button()
     {
         AnalJoe.SetActive(false);
@@ -90,10 +99,13 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
         TemporaryRoom = false;
     }
+    // Vent Left
     public void CamA8Button()
     {
         AnalJoe.SetActive(false);
@@ -106,10 +118,13 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
         TemporaryRoom = false;
     }
+    // Waiting Room
     public void CamA10Button()
     {
         AnalJoe.SetActive(false);
@@ -122,10 +137,13 @@ public class CamButtonsManager : MonoBehaviour
         WaitingRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
         TemporaryRoom = false;
     }
+    // Meeting Room
     public void CamA7Button()
     {
         AnalJoe.SetActive(false);
@@ -136,12 +154,16 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(true);
+        //SecretRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
         TemporaryRoom = false;
     }
+    // Center Room
     public void CamA5Button()
     {
         AnalJoe.SetActive(false);
@@ -152,10 +174,32 @@ public class CamButtonsManager : MonoBehaviour
         VentRight.SetActive(false);
         VentLeft.SetActive(false);
         WaitingRoom.SetActive(false);
+        //SecretRoom.SetActive(false);
         CameraChange.Play();
         AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
         AnalJoeRoom = false;
         ScubaJoeRoom = false;
+        TemporaryRoom = false;
+    }
+    public void CamA6Button()
+    {
+        AnalJoe.SetActive(false);
+        ScubaJoe2.SetActive(false);
+        CenterJoe.SetActive(false);
+        Meeting.SetActive(false);
+        Temporary.SetActive(false);
+        VentRight.SetActive(false);
+        VentLeft.SetActive(false);
+        WaitingRoom.SetActive(false);
+        //SecretRoom.SetActive(true);
+        CameraChange.Play();
+        AnalJoeAudio.Stop();
+        ScubaJoeAudio.Stop();
+        TemporaryJoeAudio.Stop();
+        AnalJoeRoom = false;
+        ScubaJoeRoom = true;
         TemporaryRoom = false;
     }
 }

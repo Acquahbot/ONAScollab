@@ -2967,7 +2967,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 01edb90055a0f4ccba113ff88b3a9b68, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.779
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5682,7 +5682,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d12eb46153676420493e82cb317cf6b2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.779
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7075,7 +7075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1324127202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7248,7 +7248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1345572486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10633,9 +10633,9 @@ MonoBehaviour:
   Secret: {fileID: 0}
   CameraChange: {fileID: 447715122}
   AnalJoeAudio: {fileID: 2081319365}
-  ScubaJoeAudio: {fileID: 0}
-  TemporaryJoeAudio: {fileID: 0}
-  SecretAudio: {fileID: 0}
+  ScubaJoeAudio: {fileID: 481416878}
+  TemporaryJoeAudio: {fileID: 1017414601}
+  SecretAudio: {fileID: 694516753}
   AnalJoeRoom: 0
   ScubaJoeRoom: 0
   TemporaryRoom: 0

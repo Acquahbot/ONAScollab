@@ -21,7 +21,7 @@ public class CamButtonsManager : MonoBehaviour
     public AudioSource TemporaryJoeAudio;
     public AudioSource SecretAudio;
     public bool AnalJoeRoom = false;
-    public bool ScubaJoeRoom = false;
+    public bool ScubaJoeRoom = true;
     public bool TemporaryRoom = false;
     public bool SecretRoom = false;
     public void Update()

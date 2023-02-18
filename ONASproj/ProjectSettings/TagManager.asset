@@ -7,6 +7,8 @@ TagManager:
   - DoorManager
   - GameManager
   - CamButtons
+  - TemporaryManager
+  - HoldButton
   layers:
   - Default
   - TransparentFX

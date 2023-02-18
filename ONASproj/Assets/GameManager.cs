@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //AI LEVELS
     public int ScubaJoeAILevel;
+    public int TemporaryAILevel;
+
     public bool CameraOpen = false;
     public GameObject cameraOverlays;
     public AudioSource CamUp;
+
+    //Special rooms Audio
     public AudioSource analJoeAudio;
     public AudioSource scubaJoeAudio;
     public AudioSource temporaryAudio;
@@ -19,6 +24,8 @@ public class GameManager : MonoBehaviour
             cameraOverlays.SetActive(true);
             CameraOpen = true;
             CamUp.Play();
+
+            /// Special room sounds integration
             if (GameObject.FindWithTag("CamButtons").GetComponent<CamButtonsManager>().AnalJoeRoom) {
                 analJoeAudio.Play();
             }

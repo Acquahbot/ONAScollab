@@ -31,6 +31,8 @@ public class ScubaJoeBehaviour : MonoBehaviour
     public bool Done2 = false;
     public float TimeBeforejumpScare = 7f;
     public AudioSource ScubajoeArrival;
+    public AudioSource scubaJumpscare;
+    public GameObject scubaJumpscareAnim;
 
     
     public void Update()
@@ -118,6 +120,13 @@ public class ScubaJoeBehaviour : MonoBehaviour
             Debug.Log("You Died from Scuba joe");
             Ending = false;
             Scubajoe1 = true;
+            scubaJumpscare.Play();
+            GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
+            if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen) {
+                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
+            }
+
+            scubaJumpscareAnim.SetActive(true);
             ScubajoeArrival.Stop();
             Done2 = false;
         }

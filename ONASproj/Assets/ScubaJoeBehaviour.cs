@@ -34,6 +34,8 @@ public class ScubaJoeBehaviour : MonoBehaviour
     public AudioSource ScubajoeArrival;
     public AudioSource scubaJumpscare;
     public GameObject scubaJumpscareAnim;
+    public GameObject FullStatic;
+    public GameObject FullStaticCentre;
 
     
     public void Update()
@@ -48,16 +50,24 @@ public class ScubaJoeBehaviour : MonoBehaviour
                 {
                     Scubajoe1 = false;
                     Scubajoe2 = true;
-                    Done = true;    
+                    Done = true;
+                    StaticOn();
+                    Invoke("StaticOff", 0.7f);
                 }
                 if (Scubajoe2 && !Done)
                 {
                     Scubajoe2 = false;
                     Center = true;
                     Done = true;
+                    StaticOn();
+                    Invoke("StaticOff", 0.7f);
+                    StaticOn2();
+                    Invoke("StaticOff2", 0.7f);
                 }
                 if (Center && !Done)
                 {
+                    StaticOn2();
+                    Invoke("StaticOff2", 0.7f);
                     Center = false;
                     Ending = true;
                     Done = true;
@@ -144,5 +154,22 @@ public class ScubaJoeBehaviour : MonoBehaviour
 
     public void Deathscreen() {
         SceneManager.LoadScene(2);
+    }
+
+    //Statics for cam movements do not touch
+    public void StaticOn() {
+        FullStatic.SetActive(true);
+    }
+    public void StaticOff() {
+        FullStatic.SetActive(false);
+    }
+
+    public void StaticOn2()
+    {
+        FullStaticCentre.SetActive(true);
+    }
+    public void StaticOff2()
+    {
+        FullStaticCentre.SetActive(false);
     }
 }

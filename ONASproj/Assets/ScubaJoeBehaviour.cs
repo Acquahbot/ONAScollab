@@ -149,6 +149,8 @@ public class ScubaJoeBehaviour : MonoBehaviour
             Scubajoe1 = true;
             ScubajoeArrival.Stop();
             Done2 = false;
+            StaticOn();
+            Invoke("StaticOff", 0.7f);
         }
     }
 

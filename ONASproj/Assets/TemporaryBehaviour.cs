@@ -5,13 +5,18 @@ using UnityEngine.EventSystems;
 
 public class TemporaryBehaviour : MonoBehaviour
 {
+    //Timers
     public float Timer;
     public float TimerforRefill;
     public float TimeTo = 4f;
     public float TimeToRefill = 2f;
 
+    //VDMBOX duration and subtract
     public float TemporaryFill = 100f;
     public float Subtract = 5f;
+
+    //Stuff for jumpscare
+    public GameObject PermStatic;
 
 public void Update()
     {
@@ -26,11 +31,11 @@ public void Update()
 
         if (TemporaryFill <= 0f)
         {
-            Debug.Log("You died from Temporary");
+            JumpscareSequence();
         }
         if (TemporaryFill > 100f)
         {
-            TemporaryFill = 99f;
+            TemporaryFill = 100f;
         }
 
         if (GameObject.FindWithTag("HoldButton") == null) {
@@ -45,6 +50,10 @@ public void Update()
             }
         }
         
+    }
+
+    public void JumpscareSequence() {
+        PermStatic.SetActive(true);
     }
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScubaJoeBehaviour : MonoBehaviour
 {
@@ -128,6 +129,8 @@ public class ScubaJoeBehaviour : MonoBehaviour
 
             scubaJumpscareAnim.SetActive(true);
             ScubajoeArrival.Stop();
+            Invoke("Deathscreen", 0.7f);
+
             Done2 = false;
         }
         else
@@ -137,5 +140,9 @@ public class ScubaJoeBehaviour : MonoBehaviour
             ScubajoeArrival.Stop();
             Done2 = false;
         }
+    }
+
+    public void Deathscreen() {
+        SceneManager.LoadScene(2);
     }
 }

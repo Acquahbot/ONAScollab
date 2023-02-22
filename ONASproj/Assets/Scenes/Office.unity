@@ -3518,6 +3518,7 @@ MonoBehaviour:
   TimeToRefill: 2
   TemporaryFill: 100
   Subtract: 5
+  Done: 0
   PermStatic: {fileID: 276842463}
   JumpscarePref: {fileID: 919132148421078231}
   vdmJumpscareAudioOpendoor: {fileID: 880044707}

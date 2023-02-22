@@ -15,6 +15,7 @@ public class TemporaryBehaviour : MonoBehaviour
     //VDMBOX duration and subtract
     public float TemporaryFill = 100f;
     public float Subtract = 5f;
+    public bool Done = false;
 
     //Stuff for jumpscare
     public GameObject PermStatic;
@@ -33,9 +34,10 @@ public class TemporaryBehaviour : MonoBehaviour
             TimeTo = Timer + 21f-GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel;
         }
 
-        if (TemporaryFill <= 0f)
+        if (TemporaryFill <= 0f && !Done)
         {
             JumpscareSequence();
+            Done = true;
         }
         if (TemporaryFill > 100f)
         {
@@ -58,23 +60,19 @@ public class TemporaryBehaviour : MonoBehaviour
 
     public void JumpscareSequence() {
         PermStatic.SetActive(true);
-        vdmJumpscareAudioCloseddoor.Play();
         Invoke("Jumpscare", 10f);
-        Invoke("AudioStart", 5f);
     }
-    public void AudioStart() {
-        //if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
-        //{
-            
-        //}
-        //else
-        //{
-            //vdmJumpscareAudioOpendoor.Play();
-        //}
-    }
+
     public void Jumpscare() {
         JumpscarePref.SetActive(true);
-        
+        if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
+        {
+            vdmJumpscareAudioCloseddoor.Play();
+        }
+        else
+        {
+            vdmJumpscareAudioOpendoor.Play();
+        }
         Invoke("DeathScreen", 0.7f);
     }
 

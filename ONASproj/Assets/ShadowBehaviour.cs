@@ -9,6 +9,7 @@ public class ShadowBehaviour : MonoBehaviour
     public float downTime = 10f;
     public bool ShadowActive;
     public bool Done = false;
+    public AudioSource labAlarm;
     public GameObject ShadowJoeAppereance;
     public GameObject redLights;
     public void Start()
@@ -36,10 +37,12 @@ public class ShadowBehaviour : MonoBehaviour
         GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().OpenDoorsOffice();
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
         redLights.SetActive(true);
+        labAlarm.Play();
     }
     public void UnlockDoors() {
         GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().LockDoorsChange();
         redLights.SetActive(false);
+        labAlarm.Stop();
         Done = false;
     }
 

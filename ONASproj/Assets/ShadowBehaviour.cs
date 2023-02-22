@@ -45,7 +45,14 @@ public class ShadowBehaviour : MonoBehaviour
 
     public void CheckShadowProb() {
         int Rand = Random.Range(1, 20);
-        if (AiLevel > Rand + 10)
+        if (AiLevel > 10)
+        {
+            Rand = Rand + 6;
+        }
+        else if (AiLevel > 5) {
+            Rand = Rand + 2;
+        }
+        if (AiLevel > Rand)
         {
             ShadowJoeAppereance.SetActive(true);
             ShadowActive = true;

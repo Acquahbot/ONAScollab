@@ -9,6 +9,7 @@ TagManager:
   - CamButtons
   - TemporaryManager
   - HoldButton
+  - ShadowManager
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,8 @@ public class DoorManager : MonoBehaviour
     public AudioSource DoorClosing;
     public AudioSource DoorOpening;
 
+    public bool LockDoors = false;
+
     public int NumberOfClosedDoors = 0;
 
     public void Update()
@@ -34,14 +36,14 @@ public class DoorManager : MonoBehaviour
     }
 
     public void FrontalDoor() {
-        if (!FrontalDoorClosed)
+        if (!FrontalDoorClosed  && !LockDoors)
         {
             FrontalDoorPref.SetActive(true);
             FrontalDoorClosed = true;
             NumberOfClosedDoors++;
             DoorClosing.Play();
         }
-        else {
+        else if(!LockDoors){
             FrontalDoorPref.SetActive(false);
             FrontalDoorClosed = false;
             NumberOfClosedDoors--;
@@ -50,14 +52,14 @@ public class DoorManager : MonoBehaviour
     }
     public void RightVent()
     {
-        if (!RightVentClosed)
+        if (!RightVentClosed && !LockDoors)
         {
             RightVentPref.SetActive(true);
             RightVentClosed = true;
             NumberOfClosedDoors++;
             DoorClosing.Play();
         }
-        else
+        else if(!LockDoors)
         {
             RightVentPref.SetActive(false);
             RightVentClosed = false;
@@ -67,19 +69,41 @@ public class DoorManager : MonoBehaviour
     }
     public void LeftVent()
     {
-        if (!LeftVentClosed)
+        if (!LeftVentClosed && !LockDoors)
         {
             LeftVentPref.SetActive(true);
             LeftVentClosed = true;
             NumberOfClosedDoors++;
             DoorClosing.Play();
         }
-        else
+        else if(!LockDoors)
         {
             LeftVentPref.SetActive(false);
             LeftVentClosed = false;
             NumberOfClosedDoors--;
             DoorOpening.Play();
+        }
+    }
+
+    public void OpenDoorsOffice() {
+        if (FrontalDoorClosed) {
+            FrontalDoor();
+        }
+        if (RightVentClosed) {
+            RightVent();
+        }
+        if (LeftVentClosed) {
+            LeftVent();
+        }
+        Invoke("LockDoorsChange", 0.2f);
+    }
+    public void LockDoorsChange() {
+        if (!LockDoors)
+        {
+            LockDoors = true;
+        }
+        else if(LockDoors){
+            LockDoors = false;
         }
     }
 }

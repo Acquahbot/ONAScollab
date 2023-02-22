@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     //AI LEVELS
     public int ScubaJoeAILevel;
     public int TemporaryAILevel;
+    public int ShadowAILevel;
 
     public bool CameraOpen = false;
     public GameObject cameraOverlays;
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     public void OpenCamera() {
         if (!CameraOpen)
         {
+            if (!GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().Done) {
+                GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().CheckShadowProb();
+            }
             cameraOverlays.SetActive(true);
             CameraOpen = true;
             CamUp.Play();
@@ -40,7 +44,9 @@ public class GameManager : MonoBehaviour
             }
         }
         else if (CameraOpen) {
-
+            if (GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().ShadowActive) {
+                GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().ShadowActive = false;
+            }
             cameraOverlays.SetActive(false);
             analJoeAudio.Stop();
             scubaJoeAudio.Stop();

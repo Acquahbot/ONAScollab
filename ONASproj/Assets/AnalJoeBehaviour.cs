@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnalJoeBehaviour : MonoBehaviour
 {
@@ -171,7 +172,7 @@ public class AnalJoeBehaviour : MonoBehaviour
             //Jumpscare
             Debug.Log("You Died from Scuba joe");
             Ending = false;
-            Scubajoe1 = true;
+            AnalJoe1 = true;
             scubaJumpscare.Play();
             GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
@@ -187,8 +188,7 @@ public class AnalJoeBehaviour : MonoBehaviour
         else
         {
             Ending = false;
-            Scubajoe1 = true;
-            ScubajoeArrival.Stop();
+            AnalJoe1 = true;
             Done2 = false;
             StaticOn();
             Invoke("StaticOff", 0.7f);

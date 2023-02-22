@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class TemporaryBehaviour : MonoBehaviour
 {
@@ -17,8 +18,11 @@ public class TemporaryBehaviour : MonoBehaviour
 
     //Stuff for jumpscare
     public GameObject PermStatic;
+    public GameObject JumpscarePref;
+    public AudioSource vdmJumpscareAudioOpendoor;
+    public AudioSource vdmJumpscareAudioCloseddoor;
 
-public void Update()
+    public void Update()
     {
 
         Timer += Time.deltaTime;
@@ -54,6 +58,22 @@ public void Update()
 
     public void JumpscareSequence() {
         PermStatic.SetActive(true);
+        Invoke("Jumpscare", 10f);
+    }
+    public void Jumpscare() {
+        JumpscarePref.SetActive(true);
+        if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
+        {
+            vdmJumpscareAudioCloseddoor.Play();
+        }
+        else {
+            vdmJumpscareAudioOpendoor.Play();
+        }
+        Invoke("DeathScreen", 0.7f);
+    }
+
+    public void DeathScreen() {
+        SceneManager.LoadScene(2);
     }
 
 }

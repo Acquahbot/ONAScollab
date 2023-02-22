@@ -10,8 +10,11 @@ public class ShadowBehaviour : MonoBehaviour
     public bool ShadowActive;
     public bool Done = false;
     public AudioSource labAlarm;
+    public AudioSource phantomJoeJumpscare;
     public GameObject ShadowJoeAppereance;
     public GameObject redLights;
+    public GameObject shadowJumpscare;
+    public Light officeLight;
     public void Start()
     {
         AiLevel = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel;
@@ -37,13 +40,21 @@ public class ShadowBehaviour : MonoBehaviour
         GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().OpenDoorsOffice();
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
         redLights.SetActive(true);
+        phantomJoeJumpscare.Play();
+        Invoke("StopJumpscare", 1f);
+        shadowJumpscare.SetActive(true);
         labAlarm.Play();
+        officeLight.intensity = 0f;
     }
     public void UnlockDoors() {
         GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().LockDoorsChange();
         redLights.SetActive(false);
         labAlarm.Stop();
         Done = false;
+    }
+    public void StopJumpscare() {
+        officeLight.intensity = 1f;
+        shadowJumpscare.SetActive(false);
     }
 
     public void CheckShadowProb() {

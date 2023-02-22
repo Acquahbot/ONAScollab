@@ -58,17 +58,23 @@ public class TemporaryBehaviour : MonoBehaviour
 
     public void JumpscareSequence() {
         PermStatic.SetActive(true);
+        vdmJumpscareAudioCloseddoor.Play();
         Invoke("Jumpscare", 10f);
+        Invoke("AudioStart", 5f);
+    }
+    public void AudioStart() {
+        //if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
+        //{
+            
+        //}
+        //else
+        //{
+            //vdmJumpscareAudioOpendoor.Play();
+        //}
     }
     public void Jumpscare() {
         JumpscarePref.SetActive(true);
-        if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
-        {
-            vdmJumpscareAudioCloseddoor.Play();
-        }
-        else {
-            vdmJumpscareAudioOpendoor.Play();
-        }
+        
         Invoke("DeathScreen", 0.7f);
     }
 

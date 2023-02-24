@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int ScubaJoeAILevel;
     public int TemporaryAILevel;
     public int ShadowAILevel;
+    public int AnalJoeAILevel;
 
     public bool CameraOpen = false;
     public GameObject cameraOverlays;

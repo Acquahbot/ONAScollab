@@ -18,13 +18,17 @@ public class AnalJoeBehaviour : MonoBehaviour
     //leftVent
     public GameObject LeftVentState1;
     public GameObject LeftVentState2;
-
+    //rightVent
+    public GameObject RightVentState1;
+    public GameObject RightVentState2;
     //States
     public bool AnalJoe1= true;
     public bool AnalJoe2= false;
 
     public bool Waiting = false;
     public bool Meeting = false;
+    public bool leftVent = false;
+    public bool rightVent = false;
     public bool Ending = false;
 
     // AILEVEL
@@ -41,7 +45,10 @@ public class AnalJoeBehaviour : MonoBehaviour
     public AudioSource scubaJumpscare;
     public GameObject scubaJumpscareAnim;
     public GameObject FullStatic;
-    public GameObject FullStaticCentre;
+    public GameObject MeetingStatic;
+    public GameObject WaitingStatic;
+    public GameObject leftVentStatic;
+    public GameObject rightVentStatic;
 
 
     public void Update()
@@ -61,35 +68,70 @@ public class AnalJoeBehaviour : MonoBehaviour
                     StaticOn();
                     Invoke("StaticOff", 0.7f);
                 }
-                if (AnalJoe1 && !Done)
+                if (AnalJoe2 && !Done)
                 {
                     AnalJoe2 = false;
                     if (Random.Range(1, 2) == 1)
                     {
                         Waiting = true;
+                        StaticOnWaiting();
+                        Invoke("StaticOffWaiting", 0.7f);
                     }
                     else if (Random.Range(1, 2) == 2) {
                         Meeting = true;
+                        StaticOnMeeting();
+                        Invoke("StaticOffMeeting", 0.7f);
                     }
                     Done = true;
                     StaticOn();
                     Invoke("StaticOff", 0.7f);
-                    StaticOn2();
-                    Invoke("StaticOff2", 0.7f);
+                    
+                }
+                if (Meeting && !Done)
+                {
+                    StaticOnMeeting();
+                    Invoke("StaticOffMeeting", 0.7f);
+                    StaticOnRight();
+                    Invoke("StaticOffRight", 0.7f);
+                    Meeting = false;
+                    Waiting = false;
+                    leftVent = true;
+                    Done = true;
                 }
                 if (Waiting && !Done)
                 {
-                    StaticOn2();
-                    Invoke("StaticOff2", 0.7f);
+                    StaticOnWaiting();
+                    Invoke("StaticOffWaiting", 0.7f);
+                    StaticOnLeft();
+                    Invoke("StaticOffLeft", 0.7f);
                     Meeting = false;
                     Waiting = false;
+                    rightVent= true;
+                    Done = true;
+                }
+                if (leftVent && !Done)
+                {
+                    StaticOnLeft();
+                    Invoke("StaticOffLeft", 0.7f);
+                    leftVent = false;
+                    Ending = true;
+                    Done = true;
+                }
+                if (rightVent && !Done)
+                {
+                    StaticOnRight();
+                    Invoke("StaticOffRight", 0.7f);
+                    rightVent = false;
                     Ending = true;
                     Done = true;
                 }
             }
             Done = false;
             TimeTo = Timer + 8f;
+            
         }
+
+
 
         //Ending Phase of his movement
         if (Ending && !Done2)
@@ -102,7 +144,7 @@ public class AnalJoeBehaviour : MonoBehaviour
         //nevertouch//
         //////////////
 
-        AiLevel = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel;
+        AiLevel = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel;
         if (AnalJoe1)
         {
             AnalState1.SetActive(true);
@@ -112,75 +154,114 @@ public class AnalJoeBehaviour : MonoBehaviour
             WaitingState2.SetActive(false);
             MeetingState1.SetActive(true);
             MeetingState2.SetActive(false);
-            LeftVentState1.SetActive(false);
+            LeftVentState1.SetActive(true);
             LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
+            
 }
         if (AnalJoe2)
         {
-            AnalState1.SetActive(true);
-            AnalState2.SetActive(false);
+            AnalState1.SetActive(false);
+            AnalState2.SetActive(true);
             AnalState3.SetActive(false);
             WaitingState1.SetActive(true);
             WaitingState2.SetActive(false);
             MeetingState1.SetActive(true);
             MeetingState2.SetActive(false);
-            LeftVentState1.SetActive(false);
+            LeftVentState1.SetActive(true);
             LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
         }
         if (Meeting)
         {
-            AnalState1.SetActive(true);
+            AnalState1.SetActive(false);
             AnalState2.SetActive(false);
-            AnalState3.SetActive(false);
+            AnalState3.SetActive(true);
             WaitingState1.SetActive(true);
             WaitingState2.SetActive(false);
-            MeetingState1.SetActive(true);
-            MeetingState2.SetActive(false);
-            LeftVentState1.SetActive(false);
+            MeetingState1.SetActive(false);
+            MeetingState2.SetActive(true);
+            LeftVentState1.SetActive(true);
             LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
         }
         if (Waiting)
         {
-            AnalState1.SetActive(true);
+            AnalState1.SetActive(false);
             AnalState2.SetActive(false);
-            AnalState3.SetActive(false);
+            AnalState3.SetActive(true);
+            WaitingState1.SetActive(false);
+            WaitingState2.SetActive(true);
+            MeetingState1.SetActive(true);
+            MeetingState2.SetActive(false);
+            LeftVentState1.SetActive(true);
+            LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
+        }
+        if (leftVent)
+        {
+            AnalState1.SetActive(false);
+            AnalState2.SetActive(false);
+            AnalState3.SetActive(true);
             WaitingState1.SetActive(true);
             WaitingState2.SetActive(false);
             MeetingState1.SetActive(true);
             MeetingState2.SetActive(false);
             LeftVentState1.SetActive(false);
+            LeftVentState2.SetActive(true);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
+        }
+        if (rightVent)
+        {
+            AnalState1.SetActive(false);
+            AnalState2.SetActive(false);
+            AnalState3.SetActive(true);
+            WaitingState1.SetActive(true);
+            WaitingState2.SetActive(false);
+            MeetingState1.SetActive(true);
+            MeetingState2.SetActive(false);
+            LeftVentState1.SetActive(true);
             LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(false);
+            RightVentState2.SetActive(true);
         }
         if (Ending)
         {
-            AnalState1.SetActive(true);
+            AnalState1.SetActive(false);
             AnalState2.SetActive(false);
-            AnalState3.SetActive(false);
+            AnalState3.SetActive(true);
             WaitingState1.SetActive(true);
             WaitingState2.SetActive(false);
             MeetingState1.SetActive(true);
             MeetingState2.SetActive(false);
-            LeftVentState1.SetActive(false);
+            LeftVentState1.SetActive(true);
             LeftVentState2.SetActive(false);
+            RightVentState1.SetActive(true);
+            RightVentState2.SetActive(false);
         }
     }
 
     public void JumpscareCheck()
     {
-        if (!GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().FrontalDoorClosed)
+        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
         {
             //Jumpscare
-            Debug.Log("You Died from Scuba joe");
+            Debug.Log("You Died from AnalJoe");
             Ending = false;
             AnalJoe1 = true;
-            scubaJumpscare.Play();
+            //scubaJumpscare.Play();
             GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
             {
                 GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
             }
 
-            scubaJumpscareAnim.SetActive(true);
+            //scubaJumpscareAnim.SetActive(true);
             Invoke("Deathscreen", 0.7f);
 
             Done2 = false;
@@ -210,12 +291,37 @@ public class AnalJoeBehaviour : MonoBehaviour
         FullStatic.SetActive(false);
     }
 
-    public void StaticOn2()
+    public void StaticOnWaiting()
     {
-        FullStaticCentre.SetActive(true);
+        WaitingStatic.SetActive(true);
     }
-    public void StaticOff2()
+    public void StaticOffWaiting()
     {
-        FullStaticCentre.SetActive(false);
+        WaitingStatic.SetActive(false);
+    }
+    public void StaticOnMeeting()
+    {
+        MeetingStatic.SetActive(true);
+    }
+    public void StaticOffMeeting()
+    {
+        MeetingStatic.SetActive(false);
+    }
+
+    public void StaticOnLeft()
+    {
+        leftVentStatic.SetActive(true);
+    }
+    public void StaticOffLeft()
+    {
+        leftVentStatic.SetActive(false);
+    }
+    public void StaticOnRight()
+    {
+        rightVentStatic.SetActive(true);
+    }
+    public void StaticOffRight()
+    {
+        rightVentStatic.SetActive(false);
     }
 }

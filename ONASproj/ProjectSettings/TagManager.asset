@@ -10,6 +10,7 @@ TagManager:
   - TemporaryManager
   - HoldButton
   - ShadowManager
+  - AnalManager
   layers:
   - Default
   - TransparentFX

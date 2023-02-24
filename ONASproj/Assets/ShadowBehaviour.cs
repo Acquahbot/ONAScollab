@@ -14,6 +14,7 @@ public class ShadowBehaviour : MonoBehaviour
     public GameObject ShadowJoeAppereance;
     public GameObject redLights;
     public GameObject shadowJumpscare;
+    public GameObject phantomjoeJumpscareFlash;
     public Light officeLight;
     public void Start()
     {
@@ -43,6 +44,7 @@ public class ShadowBehaviour : MonoBehaviour
         phantomJoeJumpscare.Play();
         Invoke("StopJumpscare", 1f);
         shadowJumpscare.SetActive(true);
+        phantomjoeJumpscareFlash.SetActive(true);
         labAlarm.Play();
         officeLight.intensity = 0f;
     }
@@ -55,6 +57,10 @@ public class ShadowBehaviour : MonoBehaviour
     public void StopJumpscare() {
         officeLight.intensity = 1f;
         shadowJumpscare.SetActive(false);
+        Invoke("StopFlash", 0.4f);
+    }
+    public void StopFlash() {
+        phantomjoeJumpscareFlash.SetActive(false);
     }
 
     public void CheckShadowProb() {

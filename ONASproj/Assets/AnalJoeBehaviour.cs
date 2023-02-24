@@ -37,6 +37,9 @@ public class AnalJoeBehaviour : MonoBehaviour
     //Timers
     public float Timer;
     public float TimeTo = 4f;
+    public float TimerRand;
+    public float TimeToRand = 2f;
+    public int Random2;
 
     //bools n stuff
     public bool Done = false;
@@ -55,6 +58,11 @@ public class AnalJoeBehaviour : MonoBehaviour
     {
         // RANDOMIZED AI FOR CAM MOVEMENTS.
         Timer += Time.deltaTime;
+        TimerRand += Time.deltaTime;
+        if (TimerRand > TimeToRand) {
+            Random2 = Random.Range(1, 3);
+            TimeToRand = TimerRand + 2f;
+        }
         if (Timer > TimeTo)
         {
             int Rand = Random.Range(0, 21);
@@ -71,13 +79,13 @@ public class AnalJoeBehaviour : MonoBehaviour
                 if (AnalJoe2 && !Done)
                 {
                     AnalJoe2 = false;
-                    if (Random.Range(1, 2) == 1)
+                    if (Random2 == 1)
                     {
                         Waiting = true;
                         StaticOnWaiting();
                         Invoke("StaticOffWaiting", 0.7f);
                     }
-                    else if (Random.Range(1, 2) == 2) {
+                    else if (Random2 == 2) {
                         Meeting = true;
                         StaticOnMeeting();
                         Invoke("StaticOffMeeting", 0.7f);

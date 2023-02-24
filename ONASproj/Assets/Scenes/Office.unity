@@ -3107,10 +3107,10 @@ MonoBehaviour:
   WaitingState2: {fileID: 608975896}
   MeetingState1: {fileID: 844758111}
   MeetingState2: {fileID: 150850873}
-  LeftVentState1: {fileID: 1822337933}
-  LeftVentState2: {fileID: 695729735}
-  RightVentState1: {fileID: 1744018295}
-  RightVentState2: {fileID: 1910560458}
+  LeftVentState1: {fileID: 1744018295}
+  LeftVentState2: {fileID: 1910560458}
+  RightVentState1: {fileID: 1822337933}
+  RightVentState2: {fileID: 695729735}
   AnalJoe1: 1
   AnalJoe2: 0
   Waiting: 0
@@ -3121,6 +3121,9 @@ MonoBehaviour:
   AiLevel: 0
   Timer: 0
   TimeTo: 4
+  TimerRand: 0
+  TimeToRand: 2
+  Random2: 0
   Done: 0
   Done2: 0
   TimeBeforejumpScare: 7
@@ -6451,7 +6454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 839825925}
   m_Layer: 5
-  m_Name: VentLeft
+  m_Name: VentRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7114,7 +7117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 913937564}
   m_Layer: 5
-  m_Name: VentRight
+  m_Name: VentLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14406,8 +14409,8 @@ MonoBehaviour:
   CenterJoe: {fileID: 1324127201}
   Meeting: {fileID: 1940838424}
   Temporary: {fileID: 2124973767}
-  VentRight: {fileID: 913937563}
-  VentLeft: {fileID: 839825924}
+  VentRight: {fileID: 839825924}
+  VentLeft: {fileID: 913937563}
   WaitingRoom: {fileID: 48443426}
   Secret: {fileID: 656483187}
   CameraChange: {fileID: 447715122}

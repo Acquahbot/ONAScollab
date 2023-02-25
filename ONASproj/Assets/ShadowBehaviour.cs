@@ -39,7 +39,11 @@ public class ShadowBehaviour : MonoBehaviour
 
     public void OpenDoors() {
         GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().OpenDoorsOffice();
-        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
+        GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
+        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
+        {
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
+        }
         redLights.SetActive(true);
         phantomJoeJumpscare.Play();
         Invoke("StopJumpscare", 1f);
@@ -57,9 +61,11 @@ public class ShadowBehaviour : MonoBehaviour
     public void StopJumpscare() {
         officeLight.intensity = 1f;
         shadowJumpscare.SetActive(false);
+        GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = false;
         Invoke("StopFlash", 0.4f);
     }
     public void StopFlash() {
+
         phantomjoeJumpscareFlash.SetActive(false);
     }
 

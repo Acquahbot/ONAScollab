@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+ONASproj/UserSettings/Layouts/default-2021.dwlt
+ONASproj/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+ONASproj/UserSettings/EditorUserSettings.asset

@@ -30,6 +30,7 @@ public class AnalJoeBehaviour : MonoBehaviour
     public bool leftVent = false;
     public bool rightVent = false;
     public bool Ending = false;
+    public bool GoJump = false;
 
     // AILEVEL
     public int AiLevel;
@@ -40,18 +41,22 @@ public class AnalJoeBehaviour : MonoBehaviour
     public float TimerRand;
     public float TimeToRand = 2f;
     public int Random2;
+    public int StoreVent = 0;
+    //left Vent 1
+    //right Vent 2
 
     //bools n stuff
     public bool Done = false;
     public bool Done2 = false;
     public float TimeBeforejumpScare = 7f;
-    public AudioSource scubaJumpscare;
-    public GameObject scubaJumpscareAnim;
+    public AudioSource analJumpscare;
+    public GameObject analJumpscareAnim;
     public GameObject FullStatic;
     public GameObject MeetingStatic;
     public GameObject WaitingStatic;
     public GameObject leftVentStatic;
     public GameObject rightVentStatic;
+    public Animator CamShakeAnimator;
 
 
     public void Update()
@@ -120,6 +125,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                 if (leftVent && !Done)
                 {
                     StaticOnLeft();
+                    StoreVent = 1;
                     Invoke("StaticOffLeft", 0.7f);
                     leftVent = false;
                     Ending = true;
@@ -128,6 +134,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                 if (rightVent && !Done)
                 {
                     StaticOnRight();
+                    StoreVent = 2;
                     Invoke("StaticOffRight", 0.7f);
                     rightVent = false;
                     Ending = true;
@@ -144,8 +151,23 @@ public class AnalJoeBehaviour : MonoBehaviour
         //Ending Phase of his movement
         if (Ending && !Done2)
         {
-            Done2 = true;
-            Invoke("JumpscareCheck", TimeBeforejumpScare);
+            if (StoreVent == 1 && !GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().LeftVentClosed)
+            {
+                JumpscareSequence();
+                Done2 = true;
+            }
+            else if (StoreVent == 2 && !GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().RightVentClosed)
+            {
+                JumpscareSequence();
+                Done2 = true;
+            }
+            else {
+                Ending = false;
+                AnalJoe1 = true;
+                Done2 = false;
+                StaticOn();
+                Invoke("StaticOff", 0.7f);
+            }
         }
 
         //////////////
@@ -253,35 +275,25 @@ public class AnalJoeBehaviour : MonoBehaviour
             RightVentState2.SetActive(false);
         }
     }
-
-    public void JumpscareCheck()
+    
+    public void JumpscareSequence()
     {
-        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
-        {
             //Jumpscare
             Debug.Log("You Died from AnalJoe");
             Ending = false;
             AnalJoe1 = true;
             //scubaJumpscare.Play();
-            GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
+            //GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
             {
                 GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
             }
 
-            //scubaJumpscareAnim.SetActive(true);
+            analJumpscareAnim.SetActive(true);
+            CamShakeAnimator.SetTrigger("Shake");
             Invoke("Deathscreen", 0.7f);
 
             Done2 = false;
-        }
-        else
-        {
-            Ending = false;
-            AnalJoe1 = true;
-            Done2 = false;
-            StaticOn();
-            Invoke("StaticOff", 0.7f);
-        }
     }
 
     public void Deathscreen()

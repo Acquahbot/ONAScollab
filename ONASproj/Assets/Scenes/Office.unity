@@ -13660,10 +13660,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c553cb1db6b24bf8a7076c89bb6a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScubaJoeAILevel: 3
-  TemporaryAILevel: 3
-  ShadowAILevel: 3
-  AnalJoeAILevel: 3
+  ScubaJoeAILevel: 1
+  TemporaryAILevel: 1
+  ShadowAILevel: 1
+  AnalJoeAILevel: 1
   CameraOpen: 0
   cameraOverlays: {fileID: 1998544795}
   CamUp: {fileID: 2016532340}

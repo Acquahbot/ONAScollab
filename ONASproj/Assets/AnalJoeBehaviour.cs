@@ -162,6 +162,15 @@ public class AnalJoeBehaviour : MonoBehaviour
                 Done2 = true;
             }
             else {
+                if (StoreVent == 1)
+                {
+                    StaticOnLeft();
+                    Invoke("StaticOffLeft", 0.7f);
+                }
+                else if (StoreVent == 2) {
+                    StaticOnRight();
+                    Invoke("StaticOffRight", 0.7f);
+                }
                 Ending = false;
                 AnalJoe1 = true;
                 Done2 = false;

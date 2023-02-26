@@ -282,7 +282,7 @@ public class AnalJoeBehaviour : MonoBehaviour
             Debug.Log("You Died from AnalJoe");
             Ending = false;
             AnalJoe1 = true;
-            //scubaJumpscare.Play();
+            analJumpscare.Play();
             //GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
             {

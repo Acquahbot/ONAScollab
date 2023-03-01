@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class OnFadeComplete : MonoBehaviour
 {
+    public int SceneToLoad;
     public void OnFadeCompleted()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneToLoad);
     }
 }

@@ -82,7 +82,7 @@ public class TemporaryBehaviour : MonoBehaviour
     }
 
     public void DeathScreen() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
 }

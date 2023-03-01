@@ -155,7 +155,7 @@ public class ScubaJoeBehaviour : MonoBehaviour
     }
 
     public void Deathscreen() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     //Statics for cam movements do not touch

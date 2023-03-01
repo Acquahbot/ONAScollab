@@ -1728,6 +1728,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1248329439}
     m_Modifications:
+    - target: {fileID: 3902858940475312279, guid: 977ef114a873d4d5fabf7ea662dda1b5, type: 3}
+      propertyPath: SceneToLoad
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3902858940475312282, guid: 977ef114a873d4d5fabf7ea662dda1b5, type: 3}
       propertyPath: m_Name
       value: TransitionEffect

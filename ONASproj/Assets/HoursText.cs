@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class HoursText : MonoBehaviour
 {
     public TMP_Text hoursText;
     public bool GameWon = false;
+    public VideoPlayer WinVideo;
+    public GameObject imageWinVideo;
+    public AudioSource[] Audios;
+    public GameObject[] Everything;
 
     public void Start()
     {
@@ -67,7 +73,27 @@ public class HoursText : MonoBehaviour
     public void AM6()
     {
         hoursText.text = "6 AM";
+        WinVideo.Play();
+        imageWinVideo.SetActive(true);
         GameWon = true;
+        Invoke("GoBacktoMain", 29f);
+        
+    }
+    public void Update()
+    {
+        if (GameWon) {
+            for (int i = 0; i < Audios.Length; i++)
+            {
+                Audios[i].Stop();
+            }
+            for (int i = 0; i < Everything.Length; i++)
+            {
+                Everything[i].SetActive(false);
+            }
+        }
+    }
+    public void GoBacktoMain() {
+        SceneManager.LoadScene(0);
     }
 
 

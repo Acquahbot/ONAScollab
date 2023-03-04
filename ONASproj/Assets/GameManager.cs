@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     //Phone guy
     public AudioSource PhoneGuy;
     public GameObject button;
+    public bool Locked = false;
 
 
     //Special rooms Audio
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("GameWinn", 0);
     }
     public void OpenCamera() {
-        if (!CameraOpen)
+        if (!CameraOpen && !Locked)
         {
             if (!GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().Done) {
                 GameObject.FindWithTag("ShadowManager").GetComponent<ShadowBehaviour>().CheckShadowProb();

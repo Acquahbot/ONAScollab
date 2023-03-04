@@ -65,6 +65,7 @@ public class TemporaryBehaviour : MonoBehaviour
 
     public void Jumpscare() {
         GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().Locked = true;
         if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
         {
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();

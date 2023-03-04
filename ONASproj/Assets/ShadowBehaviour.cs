@@ -46,6 +46,7 @@ public class ShadowBehaviour : MonoBehaviour
         }
         redLights.SetActive(true);
         phantomJoeJumpscare.Play();
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().Locked = true;
         Invoke("StopJumpscare", 1f);
         shadowJumpscare.SetActive(true);
         phantomjoeJumpscareFlash.SetActive(true);
@@ -67,6 +68,7 @@ public class ShadowBehaviour : MonoBehaviour
     public void StopFlash() {
 
         phantomjoeJumpscareFlash.SetActive(false);
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().Locked = false;
     }
 
     public void CheckShadowProb() {

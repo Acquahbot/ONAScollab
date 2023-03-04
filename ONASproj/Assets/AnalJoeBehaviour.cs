@@ -295,10 +295,12 @@ public class AnalJoeBehaviour : MonoBehaviour
             Ending = false;
             AnalJoe1 = true;
             analJumpscare.Play();
-            //GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
-            if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
+        //GameObject.FindWithTag("MainCamera").GetComponent<CameraLook>().Cameralocked = true;
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().Locked = true;
+        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
             {
-                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
+            
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
             }
 
             analJumpscareAnim.SetActive(true);

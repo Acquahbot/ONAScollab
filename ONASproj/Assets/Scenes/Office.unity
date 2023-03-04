@@ -14279,6 +14279,7 @@ MonoBehaviour:
   - {fileID: 737615084}
   PhoneGuy: {fileID: 859899127}
   button: {fileID: 2137743243}
+  Locked: 0
   analJoeAudio: {fileID: 2081319365}
   scubaJoeAudio: {fileID: 481416878}
   temporaryAudio: {fileID: 1017414601}

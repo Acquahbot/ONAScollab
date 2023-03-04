@@ -16,12 +16,10 @@ public class ShadowBehaviour : MonoBehaviour
     public GameObject shadowJumpscare;
     public GameObject phantomjoeJumpscareFlash;
     public Light officeLight;
-    public void Start()
-    {
-        AiLevel = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel;
-    }
+
     public void Update()
     {
+        AiLevel = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel;
         if (ShadowActive) {
             Timer += Time.deltaTime;
         }

@@ -7512,7 +7512,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 95
+  Priority: 53
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -14258,6 +14258,25 @@ MonoBehaviour:
   CameraOpen: 0
   cameraOverlays: {fileID: 1998544795}
   CamUp: {fileID: 2016532340}
+  Audios:
+  - {fileID: 767811419}
+  - {fileID: 447715122}
+  - {fileID: 2081319365}
+  - {fileID: 1369092131}
+  - {fileID: 1643990221}
+  - {fileID: 2016532340}
+  - {fileID: 431031777}
+  - {fileID: 481416878}
+  - {fileID: 1017414601}
+  - {fileID: 694516753}
+  - {fileID: 1470668012}
+  - {fileID: 305364383}
+  - {fileID: 880044707}
+  - {fileID: 1111444486}
+  - {fileID: 332782424}
+  - {fileID: 1123757006}
+  - {fileID: 1116977745}
+  - {fileID: 737615084}
   PhoneGuy: {fileID: 859899127}
   button: {fileID: 2137743243}
   analJoeAudio: {fileID: 2081319365}

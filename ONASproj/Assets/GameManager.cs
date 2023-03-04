@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool CameraOpen = false;
     public GameObject cameraOverlays;
     public AudioSource CamUp;
+    public AudioSource[] Audios;
     //Phone guy
     public AudioSource PhoneGuy;
     public GameObject button;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Invoke("StartButton", 5f);
-        Invoke("StopButton", 45f);
+        Invoke("StopButton", 58f);
     }
     public void OpenCamera() {
         if (!CameraOpen)
@@ -69,11 +70,25 @@ public class GameManager : MonoBehaviour
     public void StopPhoneGuy() {
         PhoneGuy.Stop();
         button.SetActive(false);
+        for (int i = 0; i < Audios.Length; i++)
+        {
+            Audios[i].volume = 1f;
+        }
     }
     public void StartButton() {
         button.SetActive(true);
+        for (int i = 0; i < Audios.Length; i++)
+        {
+            Audios[i].volume = 0.25f;
+        }
     }
     public void StopButton() {
         button.SetActive(false);
+        for (int i = 0; i < Audios.Length; i++)
+        {
+            Audios[i].volume = 1f;
+        }
     }
+
+    
 }

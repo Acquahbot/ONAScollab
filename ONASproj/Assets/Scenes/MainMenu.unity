@@ -1147,7 +1147,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1974601417}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: StartLevel
+        m_MethodName: OpenCustomNight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

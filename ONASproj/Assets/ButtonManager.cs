@@ -12,6 +12,9 @@ public class ButtonManager : MonoBehaviour
         
         animator.SetTrigger("FadeOut");
     }
+    public void OpenCustomNight() {
+        SceneManager.LoadScene(4);
+    }
     public void Quit()
     {
         Application.Quit();

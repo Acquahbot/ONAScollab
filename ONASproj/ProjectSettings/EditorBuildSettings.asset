@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IntroScene.unity
     guid: 1dff192594a5249be965bfaff7048c56
+  - enabled: 1
+    path: Assets/Scenes/CustomNightScreen.unity
+    guid: 535ca683076a12b46a5066b2730b04ae
   m_configObjects: {}

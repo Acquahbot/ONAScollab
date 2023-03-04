@@ -100,7 +100,13 @@ public class HoursText : MonoBehaviour
         WinVideo.Play();
         imageWinVideo.SetActive(true);
         GameWon = true;
-        PlayerPrefs.SetInt("GameWinn", 1);
+        if (PlayerPrefs.GetInt("CustomNight") == 1)
+        {
+
+        }
+        else {
+            PlayerPrefs.SetInt("GameWinn", 1);
+        }
         Invoke("GoBacktoMain", 29f);
         
     }

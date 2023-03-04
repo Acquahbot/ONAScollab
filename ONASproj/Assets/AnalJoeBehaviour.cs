@@ -50,6 +50,7 @@ public class AnalJoeBehaviour : MonoBehaviour
     public bool Done2 = false;
     public float TimeBeforejumpScare = 7f;
     public AudioSource analJumpscare;
+    public AudioSource ventMovement;
     public GameObject analJumpscareAnim;
     public GameObject FullStatic;
     public GameObject MeetingStatic;
@@ -109,6 +110,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                     Meeting = false;
                     Waiting = false;
                     leftVent = true;
+                    ventMovement.Play();
                     Done = true;
                 }
                 if (Waiting && !Done)
@@ -120,6 +122,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                     Meeting = false;
                     Waiting = false;
                     rightVent= true;
+                    ventMovement.Play();
                     Done = true;
                 }
                 if (leftVent && !Done)

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         Invoke("StartButton", 5f);
         Invoke("StopButton", 58f);
+        PlayerPrefs.SetInt("GameWinn", 0);
     }
     public void OpenCamera() {
         if (!CameraOpen)
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
             temporaryAudio.Stop();
             secretAudio.Stop();
             CameraOpen = false;
+            
         }
 
     }

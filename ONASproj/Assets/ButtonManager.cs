@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    public GameObject StarCompletion;
     public Animator animator;
     public void StartLevel()
     {
@@ -15,6 +16,11 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void Update()
+    {
+        if (PlayerPrefs.GetInt("GameWinn") == 1){
+            StarCompletion.SetActive(true);
+        }
+    }
 
-    
 }

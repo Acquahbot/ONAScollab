@@ -76,6 +76,7 @@ public class HoursText : MonoBehaviour
         WinVideo.Play();
         imageWinVideo.SetActive(true);
         GameWon = true;
+        PlayerPrefs.SetInt("GameWinn", 1);
         Invoke("GoBacktoMain", 29f);
         
     }

@@ -10,12 +10,15 @@ public class CustomNightButtons : MonoBehaviour
     public TMP_Text AnalJoeText;
     public TMP_Text TemporaryJoeText;
     public TMP_Text ShadowJoeText;
+    public Animator animator;
+
     public void Start()
     {
         PlayerPrefs.SetInt("ScubaJoeLevel", 0);
         PlayerPrefs.SetInt("AnalJoeLevel", 0);
         PlayerPrefs.SetInt("TemporaryJoeLevel", 0);
         PlayerPrefs.SetInt("ShadowJoeLevel", 0);
+        PlayerPrefs.SetInt("CustomNight", 1);
     }
 
     
@@ -30,7 +33,9 @@ public class CustomNightButtons : MonoBehaviour
     public void GoBack() {
         SceneManager.LoadScene(0);
     }
-
+    public void StartGame() {
+        animator.SetTrigger("FadeOut");
+    }
 
     //SCUBA JOE RELATED
     public void UpScubajoe()

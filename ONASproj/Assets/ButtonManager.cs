@@ -25,5 +25,9 @@ public class ButtonManager : MonoBehaviour
             StarCompletion.SetActive(true);
         }
     }
+    public void Start()
+    {
+        PlayerPrefs.SetInt("CustomNight", 0);
+    }
 
 }

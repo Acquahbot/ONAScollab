@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     {
         Invoke("StartButton", 5f);
         Invoke("StopButton", 58f);
-        PlayerPrefs.SetInt("GameWinn", 0);
     }
     public void OpenCamera() {
         if (!CameraOpen && !Locked)

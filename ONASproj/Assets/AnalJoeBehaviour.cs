@@ -72,6 +72,9 @@ public class AnalJoeBehaviour : MonoBehaviour
         if (Timer > TimeTo)
         {
             int Rand = Random.Range(0, 21);
+            if (GoJump) {
+                Rand = 20;
+            } 
             if (AiLevel > Rand)
             {
                 if (AnalJoe1 && !Done)
@@ -124,6 +127,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                     rightVent= true;
                     ventMovement.Play();
                     Done = true;
+                    GoJump = true;
                 }
                 if (leftVent && !Done)
                 {
@@ -133,6 +137,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                     leftVent = false;
                     Ending = true;
                     Done = true;
+                    GoJump = true;
                 }
                 if (rightVent && !Done)
                 {
@@ -142,10 +147,11 @@ public class AnalJoeBehaviour : MonoBehaviour
                     rightVent = false;
                     Ending = true;
                     Done = true;
+                    GoJump = false;
                 }
             }
             Done = false;
-            TimeTo = Timer + 8f;
+            TimeTo = Timer + 5f;
             
         }
 

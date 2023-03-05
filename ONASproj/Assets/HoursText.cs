@@ -45,7 +45,7 @@ public class HoursText : MonoBehaviour
         {
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 6;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 4;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 3;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 6;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 0;
         }
         
@@ -64,9 +64,9 @@ public class HoursText : MonoBehaviour
     public void AM3()
     {
         if (PlayerPrefs.GetInt("CustomNight") == 0){
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 12;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 12;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 10;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 14;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 14;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 14;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 10;
         }
         hoursText.text = "3 AM";
@@ -75,10 +75,10 @@ public class HoursText : MonoBehaviour
     public void AM4()
     {
         if (PlayerPrefs.GetInt("CustomNight") == 0){
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 16;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 18;
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 15;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 15;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 14;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 16;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 15;
         }
             hoursText.text = "4 AM";
         
@@ -86,10 +86,10 @@ public class HoursText : MonoBehaviour
     public void AM5()
     {
         if (PlayerPrefs.GetInt("CustomNight") == 0) {
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 18;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 15;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 16;
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 15;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ScubaJoeAILevel = 20;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel = 20;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AnalJoeAILevel = 20;
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().ShadowAILevel = 20;
         }
         hoursText.text = "5 AM";
         

@@ -7,13 +7,13 @@ public class ButtonManager : MonoBehaviour
 {
     public GameObject StarCompletion;
     public Animator animator;
+    public Animator ndAnimator;
     public void StartLevel()
     {
-        
         animator.SetTrigger("FadeOut");
     }
     public void OpenCustomNight() {
-        SceneManager.LoadScene(4);
+        ndAnimator.SetTrigger("FadeOut");
     }
     public void Quit()
     {
@@ -28,6 +28,7 @@ public class ButtonManager : MonoBehaviour
     public void Start()
     {
         PlayerPrefs.SetInt("CustomNight", 0);
+        //PlayerPrefs.SetInt("GameWinn", 0);
     }
 
 }

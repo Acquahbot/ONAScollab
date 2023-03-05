@@ -31,7 +31,7 @@ public class TemporaryBehaviour : MonoBehaviour
         if (Timer > TimeTo)
         {
             TemporaryFill-=10f;
-            TimeTo = Timer + 21f-GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel;
+            TimeTo = Timer + 22f-GameObject.FindWithTag("GameManager").GetComponent<GameManager>().TemporaryAILevel;
         }
 
         if (TemporaryFill <= 0f && !Done)

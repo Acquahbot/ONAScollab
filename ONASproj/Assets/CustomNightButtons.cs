@@ -12,6 +12,11 @@ public class CustomNightButtons : MonoBehaviour
     public TMP_Text ShadowJoeText;
     public Animator animator;
 
+    //EE
+    public GameObject EEobject;
+    public GameObject Static;
+    public AudioSource EEaudio;
+    public AudioSource mainAudio;
     public void Start()
     {
         PlayerPrefs.SetInt("ScubaJoeLevel", 0);
@@ -34,7 +39,22 @@ public class CustomNightButtons : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     public void StartGame() {
-        animator.SetTrigger("FadeOut");
+        if (PlayerPrefs.GetInt("ScubaJoeLevel") == 0 && PlayerPrefs.GetInt("AnalJoeLevel") == 1 && PlayerPrefs.GetInt("ShadowJoeLevel") == 2 && PlayerPrefs.GetInt("TemporaryJoeLevel") == 7)
+        {
+            EEobject.SetActive(true);
+            EEaudio.Play();
+            Static.SetActive(false);
+            mainAudio.Stop();
+            Invoke("QuitGame", 5f);
+        }
+        else {
+            animator.SetTrigger("FadeOut");
+        }
+        
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 
     //SCUBA JOE RELATED

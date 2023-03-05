@@ -73,7 +73,7 @@ public class AnalJoeBehaviour : MonoBehaviour
         {
             int Rand = Random.Range(0, 21);
             if (GoJump) {
-                Rand = 20;
+                Rand = 1;
             } 
             if (AiLevel > Rand)
             {
@@ -151,7 +151,7 @@ public class AnalJoeBehaviour : MonoBehaviour
                 }
             }
             Done = false;
-            TimeTo = Timer + 5f;
+            TimeTo = Timer + 7f;
             
         }
 

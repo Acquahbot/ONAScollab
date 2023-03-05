@@ -328,6 +328,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &322276461 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3902858940475312276, guid: 977ef114a873d4d5fabf7ea662dda1b5, type: 3}
+  m_PrefabInstance: {fileID: 881914725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &614525824
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a8db3c286c544e9996d09032b340fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fadeout: {fileID: 322276461}
 --- !u!4 &699127050
 Transform:
   m_ObjectHideFlags: 0
@@ -531,6 +537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215891237}
     m_Modifications:
+    - target: {fileID: 3902858940475312279, guid: 977ef114a873d4d5fabf7ea662dda1b5, type: 3}
+      propertyPath: SceneToLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3902858940475312282, guid: 977ef114a873d4d5fabf7ea662dda1b5, type: 3}
       propertyPath: m_Name
       value: TransitionEffect

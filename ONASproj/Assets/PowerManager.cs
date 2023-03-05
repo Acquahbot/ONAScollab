@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class PowerManager : MonoBehaviour
 {
@@ -24,9 +26,21 @@ public class PowerManager : MonoBehaviour
     public AudioSource[] Audios;
     public GameObject[] Everything;
 
+    //jumpscare
+    public Animator CamShakeAnimator;
+    public GameObject analJumpscareAnim;
+    public AudioSource analJumpscare;
+
+
     public void RunOutSequence() {
         RunOutSteps.Play();
-            for (int i = 0; i < Audios.Length; i++)
+        if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().CameraOpen)
+        {
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().OpenCamera();
+        }
+        GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().OpenDoorsOffice();
+
+        for (int i = 0; i < Audios.Length; i++)
             {
                 Audios[i].Stop();
             }
@@ -34,8 +48,21 @@ public class PowerManager : MonoBehaviour
         {
             Everything[i].SetActive(false);
         }
+        int Rand = Random.Range(10, 20);
+        Invoke("JumpscareSequence", Rand);
     }
-    
+    public void JumpscareSequence() {
+        RunOutSteps.Stop();
+        analJumpscare.Play();
+        analJumpscareAnim.SetActive(true);
+        CamShakeAnimator.SetTrigger("Shake");
+        Invoke("Deathscreen", 0.7f);
+    }
+    public void Deathscreen()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Update()
     {
         Timer += Time.deltaTime;
@@ -43,21 +70,32 @@ public class PowerManager : MonoBehaviour
             Power = Power - 1;
             TimeInto = Timer;
         }
-        FrequencyPower = PermanentFreq -2.3f* GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors;
+        if (GameObject.FindWithTag("DoorManager") == null)
+        {
+
+        }
+        else {
+            FrequencyPower = PermanentFreq - 2.3f * GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors;
+        }
         PowerText.text = "POWER: " + Power.ToString();
 
         if (Power <= 0) {
             Power = 0;
         }
         if (Power == 0 && !RunOut) {
-
+            RunOutSequence();
             RunOut = true;
         }
 
 
         //TEXT COLOR
-
-        if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 0)
+        if (GameObject.FindWithTag("DoorManager") == null) {
+            Usage1.SetActive(false);
+            Usage2.SetActive(false);
+            Usage3.SetActive(false);
+            Usage4.SetActive(false);
+        }
+        else if (GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors == 0)
         {
             Usage1.SetActive(false);
             Usage2.SetActive(false);

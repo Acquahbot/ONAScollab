@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathscreenAutorestart : MonoBehaviour
 {
+    public Animator Fadeout;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class DeathscreenAutorestart : MonoBehaviour
 
     // Update is called once per frame
     void RestartGame() {
-        SceneManager.LoadScene(1);
+        Fadeout.SetTrigger("FadeOut");
     }
 }

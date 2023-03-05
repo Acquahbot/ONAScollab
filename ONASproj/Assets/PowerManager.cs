@@ -25,6 +25,7 @@ public class PowerManager : MonoBehaviour
     public AudioSource RunOutSteps;
     public AudioSource[] Audios;
     public GameObject[] Everything;
+    public GameObject Redlight;
 
     //jumpscare
     public Animator CamShakeAnimator;
@@ -49,6 +50,7 @@ public class PowerManager : MonoBehaviour
             Everything[i].SetActive(false);
         }
         int Rand = Random.Range(10, 20);
+        Redlight.SetActive(true);
         Invoke("JumpscareSequence", Rand);
     }
     public void JumpscareSequence() {

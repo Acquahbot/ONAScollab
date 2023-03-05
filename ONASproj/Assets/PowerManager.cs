@@ -17,6 +17,24 @@ public class PowerManager : MonoBehaviour
     public GameObject Usage2;
     public GameObject Usage3;
     public GameObject Usage4;
+
+    //Runoutofpower
+    public bool RunOut = false;
+    public AudioSource RunOutSteps;
+    public AudioSource[] Audios;
+    public GameObject[] Everything;
+
+    public void RunOutSequence() {
+        RunOutSteps.Play();
+            for (int i = 0; i < Audios.Length; i++)
+            {
+                Audios[i].Stop();
+            }
+        for (int i = 0; i < Everything.Length; i++)
+        {
+            Everything[i].SetActive(false);
+        }
+    }
     
     public void Update()
     {
@@ -28,6 +46,13 @@ public class PowerManager : MonoBehaviour
         FrequencyPower = PermanentFreq -2.3f* GameObject.FindWithTag("DoorManager").GetComponent<DoorManager>().NumberOfClosedDoors;
         PowerText.text = "POWER: " + Power.ToString();
 
+        if (Power <= 0) {
+            Power = 0;
+        }
+        if (Power == 0 && !RunOut) {
+
+            RunOut = true;
+        }
 
 
         //TEXT COLOR
